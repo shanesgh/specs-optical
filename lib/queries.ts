@@ -21,10 +21,7 @@ export const getAllProducts = `*[_type == "product"]{
   lensWidth,
   bridgeWidth,
   templeLength,
-  color,
-  deal,
-  deal_discount,
-  deal_description
+  color
 }`;
 
 export const getProductBySlug = `*[_type == "product" && slug.current == $slug][0] {
@@ -52,9 +49,6 @@ export const getProductBySlug = `*[_type == "product" && slug.current == $slug][
   bridgeWidth,
   templeLength,
   color,
-  deal,
-  deal_discount,
-  deal_description
 }`;
 
 export const getProductsBySearch = `*[_type == "product" && (product_name match $term || brand match $term)]{
@@ -82,12 +76,12 @@ _id,
   bridgeWidth,
   templeLength,
   color,
-  deal,
-  deal_discount,
-  deal_description
+ 
 }
 `;
 
 export const getWhatsappAndPromoMessage = `*[_type == "company"]{
 whatsappNumber, promo
 }`;
+
+export const getDeal = `*[_type == "deals"][0]{ name, image{ asset->{ _id, url } } }`;

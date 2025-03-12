@@ -24,9 +24,6 @@ export type ProductType = {
   bridgeWidth: number | null;
   templeLength: number | null;
   color: string;
-  deal: boolean | null;
-  deal_discount: number | null;
-  deal_description: string | null;
 };
 
 export type SingleProductBySlug = {
@@ -39,7 +36,6 @@ export type SingleProductBySlug = {
   }[];
   templeLength: number | null;
   color: string;
-  deal_description: string;
   price: number;
   frameMaterial: string;
   description: string;
@@ -51,9 +47,7 @@ export type SingleProductBySlug = {
   }[];
   lensWidth: number | null;
   bridgeWidth: number | null;
-  deal: boolean;
   _id: string;
-  deal_discount: number;
   availability: boolean;
   lensMaterial: string;
   product_name: string;
@@ -62,4 +56,17 @@ export type SingleProductBySlug = {
 export type WhatsappAndPromoMessageType = {
   whatsappNumber: string;
   promo: string;
+};
+
+export type DealType = {
+  name: string;
+  image: { asset: { _id: string; url: string } } | false;
+};
+
+export type ImageSanity = {
+  _key: string;
+  asset: {
+    _id: string;
+    url: string;
+  };
 };

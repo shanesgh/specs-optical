@@ -18,7 +18,7 @@ const CartProvider = ({ children }: Props) => {
       language="en-US"
       currency="USD"
       billingAddressCollection={true}
-      shouldPersist={false}
+      shouldPersist={true}
     >
       {children}
     </CProvider>

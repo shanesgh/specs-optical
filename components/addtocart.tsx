@@ -2,9 +2,10 @@
 import { useToast } from "@/hooks/use-toast";
 import React from "react";
 import { useShoppingCart } from "use-shopping-cart";
+import cn from "classnames";
 
 type AddToCartBtnProps = {
-  btnStyles?: string;
+  btnStyles: string;
   icon?: React.ReactNode;
   id: string;
   currency: string;
@@ -14,14 +15,15 @@ type AddToCartBtnProps = {
   price: number;
 };
 
-const AddToCartBtn = ({
+const AddToCartBtn: React.FC<AddToCartBtnProps> = ({
   id,
   currency,
   name,
   description,
   images,
   price,
-}: AddToCartBtnProps) => {
+  btnStyles,
+}) => {
   const { addItem } = useShoppingCart();
   const { toast } = useToast();
 
@@ -36,16 +38,19 @@ const AddToCartBtn = ({
 
   return (
     <button
-      className="bg-blue-950 rounded-lg px-2 py-1 text-white ring-1 ring-black focus:ring-black"
+      className={cn(
+        "bg-blue-950 rounded-lg px-2 py-1 text-white ring-1 ring-black focus:ring-black",
+        btnStyles
+      )}
       onClick={() => {
         addItem(glasses);
         toast({
-          title: `${name} has been added to the cart`,
+          title: `${name} - added to the wishlist`,
           duration: 2000,
         });
       }}
     >
-      <div>Add to Cart</div>
+      <div>Add to Wishlist</div>
     </button>
   );
 };

@@ -6,13 +6,15 @@ const Promotional = async () => {
     await fetchWhatsappAndPromoMessage();
 
   return (
-    <section className="text-white/90 text-sm bg-blue-950 py-2 flex flex-col md:flex-row sm:justify-between px-8 justify-center items-center">
-      <div className="whitespace-nowrap tracking-widest text-3xl font-semibold text-white/70 lg:hidden py-2 ">
+    <section className="hidden md:flex text-white/90 text-sm bg-blue-950 py-1 flex-col md:flex-row sm:justify-between px-8 justify-center items-center">
+      <div className="whitespace-nowrap tracking-widest text-3xl font-semibold text-white/70 lg:hidden">
         SPECS CO
       </div>
 
-      <div className="lg:ml-auto whitespace-nowrap ">{promo}</div>
-      <div className="lg:ml-auto whitespace-nowrap ">Whatsapp or Call us at {whatsappNumber}</div>
+      <div className="md:ml-auto whitespace-nowrap ">{promo}</div>
+      <div className="md:ml-auto whitespace-nowrap ">
+        Whatsapp or Call us at {whatsappNumber}
+      </div>
     </section>
   );
 };

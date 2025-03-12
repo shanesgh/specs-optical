@@ -19,23 +19,26 @@ type CartProps = {
 const CartItem = ({ item }: CartProps) => {
   const { removeItem, incrementItem, decrementItem } = useShoppingCart();
   return (
-    <div className="flex w-full justify-between mb-4 items-center h-[120px] border-b">
+    <div className="flex w-full justify-between items-center h-[100px] border-b">
       {/* image */}
-      <div className="w-[110px] h-[110px] relative">
+      <div className="w-[90px] h-[90px] relative ">
         <Image
           src={item.images?.[0] ? urlFor(item.images[0]).url() : ""}
           fill
           priority
           sizes="(max-width: 110px) 110px, 110px"
-          className="object-contain"
+          className="object-cover"
           alt=""
         />
       </div>
       {/* name, price, quantity, remove */}
-      <div className="w-full max-w-[180px] flex flex-col justify-center gap-4">
+      <div className="w-full max-w-[200px] flex flex-col justify-between  gap-4 h-[90px] p-2">
         <div className="flex items-center justify-between">
           <h5>{item.name}</h5>
-          <button onClick={() => removeItem(item.id)}>
+          <button
+            className="rounded-full shadow-2xl shadow-blue-950/90 hover:shadow-red-700/90 hover:scale-105 duration-75 ease-out text-[10px]"
+            onClick={() => removeItem(item.id)}
+          >
             <FaX className="text-sm" />
           </button>
         </div>
@@ -47,7 +50,7 @@ const CartItem = ({ item }: CartProps) => {
             </button>
             <div className="font-semibold">{item.quantity}</div>
             <button onClick={() => incrementItem(item.id)}>
-              <FaPlus className="text-[10px]" />
+              <FaPlus className=" text-[10px]" />
             </button>
           </div>
           <div className="font-semibold text-balance text-right">
